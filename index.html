@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Version 2.0.0: Content Fix & Link Updates -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,7 +13,7 @@
         .checkbox-checked { background-color: #f0fdf4; border-color: #bbf7d0; }
         .strikethrough { text-decoration: line-through; color: #9ca3af; }
         
-        /* Custom Scrollbar for cleaner look */
+        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #f1f1f1; }
         ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 3px; }
@@ -30,13 +31,13 @@
     </div>
 
     <!-- SIDEBAR -->
-    <div id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 w-64 bg-white border-r border-gray-200 flex flex-col h-full z-10 shadow-lg transition-transform duration-200 ease-in-out">
+    <div id="sidebar" class="fixed inset-y-0 left-0 transform -translate-x-full md:relative md:translate-x-0 w-72 bg-white border-r border-gray-200 flex flex-col h-full z-10 shadow-lg transition-transform duration-200 ease-in-out">
         <div class="p-6 border-b border-gray-100 bg-orange-50">
             <h1 class="font-bold text-xl text-slate-800 tracking-tight flex items-center gap-2">
                 <i data-lucide="chef-hat" class="text-orange-500"></i>
                 Baking Track
             </h1>
-            <p class="text-xs text-slate-500 mt-1">Master Recipe Curriculum</p>
+            <p class="text-xs text-slate-500 mt-1">v2.0 • Fundamentals & Master Recipes</p>
             
             <div class="mt-6">
                 <div class="flex justify-between text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
@@ -78,72 +79,79 @@
     </div>
 
     <script>
-        // --- DATA STRUCTURE ---
+        // --- DATA STRUCTURE (v2.0 - Verified Links) ---
         const modules = {
-            fundamentals: {
-                title: "1. The Fundamentals",
-                icon: "flask-conical",
-                desc: "The 'Grammar' of baking. Understand the science before you mix.",
+            prep: {
+                title: "1. Getting Started",
+                icon: "clipboard-list",
+                desc: "The essential 'Pre-Game' skills. Do not skip these.",
                 steps: [
-                    { id: 'f1', type: 'Read', title: 'The Function of Flour', link: 'https://bakerbettie.com/function-of-flour-in-baking/', note: 'Understand protein percentages and gluten formation.' },
-                    { id: 'f2', type: 'Read', title: 'The Function of Sugar', link: 'https://bakerbettie.com/function-of-sugar-in-baking/', note: 'Sugar provides moisture and tenderness, not just sweetness.' },
-                    { id: 'f3', type: 'Video', title: 'How to Measure Ingredients', link: 'https://bakerbettie.com/how-to-measure-flour/', note: 'CRITICAL: Watch the "Scoop and Level" technique video.' },
-                    { id: 'f4', type: 'Read', title: 'Mise En Place', link: 'https://bakerbettie.com/mise-en-place-baking-prep/', note: 'Why you should prep everything before mixing.' }
+                    { id: 'p1', type: 'Read', title: 'Mise en Place', link: 'https://bakerbettie.com/mise-en-place-for-baking/', note: 'The most important lesson: prep your workspace first.' },
+                    { id: 'p2', type: 'Video', title: 'Mise en Place Video', link: 'https://www.youtube.com/watch?v=62MOCMyPce0', note: 'Visual guide to setting up your station.' },
+                    { id: 'p3', type: 'Read', title: 'Essential Equipment', link: 'https://bakerbettie.com/essential-baking-equipment/', note: 'Why you need a kitchen scale and bench scraper.' },
+                    { id: 'p4', type: 'Read', title: 'Baking Terminology', link: 'https://bakerbettie.com/common-baking-terminology-definitions/', note: 'Definitions of fold, cream, cut in, and proof.' },
+                    { id: 'p5', type: 'Read', title: 'Reading a Recipe', link: 'https://bakerbettie.com/how-to-read-and-understand-a-recipe/', note: 'How to identify timing and temperature needs.' },
+                    { id: 'p6', type: 'Video', title: 'Measuring Ingredients', link: 'https://www.youtube.com/watch?v=LouNnXUmANs', note: 'The "Spoon and Level" method vs. Weighing.' }
+                ]
+            },
+            science: {
+                title: "2. Ingredient Science",
+                icon: "flask-conical",
+                desc: "Understanding your building blocks. Includes homework recipes.",
+                steps: [
+                    { id: 's1', type: 'Read', title: 'Function of Flour', link: 'https://bakerbettie.com/varieties-flour/', note: 'Protein content: Cake flour vs Bread flour.' },
+                    { id: 's2', type: 'Read', title: 'All About Gluten', link: 'https://bakerbettie.com/all-about-gluten/', note: 'When to develop it (bread) vs minimize it (cake).' },
+                    { id: 's3', type: 'Read', title: 'Function of Sugar', link: 'https://bakerbettie.com/function-of-sugar-in-baking/', note: 'Sugar creates moisture and tenderness.' },
+                    { id: 's4', type: 'Recipe', title: 'Homework: Angel Food Cake', link: 'https://bakerbettie.com/how-to-make-angel-food-cake/', note: 'A study in sugar structure and egg whites.' },
+                    { id: 's5', type: 'Read', title: 'Function of Eggs', link: 'https://bakerbettie.com/function-of-eggs-in-baking/', note: 'Structure, emulsification, and richness.' },
+                    { id: 's6', type: 'Read', title: 'Function of Fat', link: 'https://bakerbettie.com/function-of-fat-in-baking/', note: 'Butter vs Oil vs Shortening.' },
+                    { id: 's7', type: 'Read', title: 'Leavening Agents', link: 'https://bakerbettie.com/what-is-leavening/', note: 'Baking Soda vs Baking Powder vs Yeast.' }
                 ]
             },
             muffins: {
-                title: "2. The Muffin Method",
+                title: "3. The Muffin Method",
                 icon: "coffee",
-                desc: "Liquid into Dry. The foundation of all quick breads.",
+                desc: "The 'Two Bowl' method. Liquid into Dry.",
                 steps: [
-                    { id: 'm1', type: 'Video', title: 'Technique: Muffin Method', link: 'https://www.youtube.com/watch?v=S33wPrQYAXo', note: 'Notice how lumpy she leaves the batter. Overmixing = tough muffins.' },
+                    { id: 'm1', type: 'Video', title: 'Technique: Muffin Method', link: 'https://www.youtube.com/watch?v=S33wPrQYAXo', note: 'Notice how lumpy she leaves the batter.' },
                     { id: 'm2', type: 'Recipe', title: 'MASTER RECIPE: Basic Muffins', link: 'https://bakerbettie.com/master-muffin-recipe/', note: 'Your blank canvas. Bake this first.' },
-                    { id: 'm3', type: 'Read', title: 'Muffin Variations', link: 'https://bakerbettie.com/5-easy-muffin-variations/', note: 'How to add fruit/nuts without ruining the chemistry.' }
+                    { id: 'm3', type: 'Read', title: 'Muffin Variations', link: 'https://bakerbettie.com/5-easy-muffin-variations/', note: 'Adding fruit/nuts without ruining texture.' }
                 ]
             },
             biscuits: {
-                title: "3. The Biscuit Method",
+                title: "4. The Biscuit Method",
                 icon: "layers",
                 desc: "Cutting in Fat. Cold butter equals flaky layers.",
                 steps: [
-                    { id: 'b1', type: 'Video', title: 'Technique: Making Biscuits', link: 'https://bakerbettie.com/how-to-make-biscuits/', note: 'Visual guide to "pea-sized crumbs" vs "cornmeal texture".' },
+                    { id: 'b1', type: 'Video', title: 'Technique: Making Biscuits', link: 'https://bakerbettie.com/how-to-make-biscuits/', note: 'Visual guide to "pea-sized crumbs".' },
                     { id: 'b2', type: 'Recipe', title: 'MASTER RECIPE: Flaky Biscuits', link: 'https://bakerbettie.com/best-buttermilk-biscuits/', note: 'The holy grail: Tall, flaky, buttermilk goodness.' },
-                    { id: 'b3', type: 'Recipe', title: 'Variation: Master Scones', link: 'https://bakerbettie.com/master-scone-recipe/', note: 'Similar method, but with richer ingredients (egg/cream).' }
+                    { id: 'b3', type: 'Recipe', title: 'Homework: Pie Crust', link: 'https://bakerbettie.com/how-to-make-pie-crust/', note: 'Uses the same "cold fat" principles.' }
                 ]
             },
             creaming: {
-                title: "4. The Creaming Method",
+                title: "5. The Creaming Method",
                 icon: "cookie",
-                desc: "Butter + Sugar + Air. The basis for cookies and cakes.",
+                desc: "Butter + Sugar + Air. Cookies and Cakes.",
                 steps: [
-                    { id: 'c1', type: 'Read', title: 'Science of Creaming', link: 'https://bakerbettie.com/creaming-method-cake-making/', note: 'Why we beat butter/sugar for 5 mins (aeration).' },
-                    { id: 'c2', type: 'Video', title: 'Cookie Science', link: 'https://bakerbettie.com/the-science-of-the-chocolate-chip-cookie/', note: 'Understanding Chewy vs. Crispy vs. Cakey.' },
+                    { id: 'c1', type: 'Read', title: 'Science of Creaming', link: 'https://bakerbettie.com/creaming-method-cake-making/', note: 'Why we beat butter/sugar for 5 mins.' },
+                    { id: 'c2', type: 'Video', title: 'Cookie Science', link: 'https://bakerbettie.com/the-science-of-the-chocolate-chip-cookie/', note: 'Chewy vs. Crispy vs. Cakey.' },
                     { id: 'c3', type: 'Recipe', title: 'MASTER RECIPE: Chewy Cookies', link: 'https://bakerbettie.com/the-best-chewy-chocolate-chip-cookies/', note: 'The gold standard cookie base.' }
                 ]
             },
             yeast: {
-                title: "5. Yeast Breads",
+                title: "6. Yeast Breads",
                 icon: "wheat",
-                desc: "Patience and Kneading. Building strong gluten structures.",
+                desc: "Patience and Kneading. Building strong gluten.",
                 steps: [
-                    { id: 'y1', type: 'Read', title: 'Yeast Essentials', link: 'https://bakerbettie.com/yeast-essentials-everything-you-need-to-know-to-bake-with-yeast/', note: 'Difference between Active Dry and Instant Yeast.' },
+                    { id: 'y1', type: 'Read', title: 'Yeast Essentials', link: 'https://bakerbettie.com/yeast-essentials-everything-you-need-to-know-to-bake-with-yeast/', note: 'Active Dry vs Instant Yeast.' },
                     { id: 'y2', type: 'Video', title: 'Technique: Kneading', link: 'https://bakerbettie.com/how-to-knead-bread/', note: 'How to perform the Windowpane Test.' },
-                    { id: 'y3', type: 'Recipe', title: 'MASTER RECIPE: White Bread', link: 'https://bakerbettie.com/simple-white-bread-recipe/', note: 'A classic sandwich loaf to practice your kneading.' }
-                ]
-            },
-            pastry: {
-                title: "6. Pie & Pastry",
-                icon: "circle-dashed",
-                desc: "Temperature control. Keep everything cold!",
-                steps: [
-                    { id: 'p1', type: 'Video', title: 'Technique: Pie Crust', link: 'https://bakerbettie.com/how-to-make-pie-crust/', note: 'Handling dough without melting the butter.' },
-                    { id: 'p2', type: 'Recipe', title: 'MASTER RECIPE: Flaky Crust', link: 'https://bakerbettie.com/all-butter-flaky-pie-crust/', note: 'The all-butter standard crust.' }
+                    { id: 'y3', type: 'Recipe', title: 'MASTER RECIPE: White Bread', link: 'https://bakerbettie.com/simple-white-bread-recipe/', note: 'A classic sandwich loaf.' }
                 ]
             }
         };
 
         // --- STATE MANAGEMENT ---
-        let activeModule = 'fundamentals';
+        let activeModule = 'prep';
         let completed = JSON.parse(localStorage.getItem('bakerBettieProgress')) || {};
 
         // --- CORE FUNCTIONS ---
@@ -182,7 +190,6 @@
 
         // --- EXPORT / IMPORT FUNCTIONS ---
         function exportData() {
-            // Create a simple base64 encoded string of the progress
             const dataStr = btoa(JSON.stringify(completed));
             navigator.clipboard.writeText(dataStr).then(() => {
                 alert("Progress Code copied to clipboard! \n\nSend this code to your other device and use the 'Restore' button.");
@@ -217,7 +224,6 @@
             Object.keys(modules).forEach(key => {
                 const mod = modules[key];
                 
-                // Calculate module specific progress
                 const modTotal = mod.steps.length;
                 const modCompleted = mod.steps.filter(s => completed[s.id]).length;
                 const isDone = modTotal === modCompleted && modTotal > 0;
@@ -262,7 +268,6 @@
             data.steps.forEach(step => {
                 const isChecked = completed[step.id];
                 
-                // Style definitions based on type
                 let typeBadge = '';
                 if(step.type === 'Video') typeBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-red-100 text-red-700">Video</span>';
                 else if(step.type === 'Recipe') typeBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-orange-100 text-orange-700">Recipe</span>';
