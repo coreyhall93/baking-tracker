@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<!-- Version 2.1.0: iOS Viewport Fixes -->
+<!-- Version 2.2.0: Grouped Resources & Coherent Structure -->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -48,7 +48,7 @@
                     <i data-lucide="x" class="w-5 h-5"></i>
                 </button>
             </div>
-            <p class="text-xs text-slate-500 mt-1">v2.1 • Fundamentals & Master Recipes</p>
+            <p class="text-xs text-slate-500 mt-1">v2.2 • Fundamentals & Master Recipes</p>
             
             <div class="mt-6">
                 <div class="flex justify-between text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">
@@ -90,33 +90,133 @@
     </div>
 
     <script>
-        // --- DATA STRUCTURE (v2.0 - Verified Links) ---
+        // --- DATA STRUCTURE (v2.2 - Grouped Resources) ---
+        // Each step now contains an array of resources (Read, Watch, etc.) for better coherence.
         const modules = {
             prep: {
                 title: "1. Getting Started",
                 icon: "clipboard-list",
-                desc: "The essential 'Pre-Game' skills. Do not skip these.",
+                desc: "The essential 'Pre-Game' skills. Set yourself up for success.",
                 steps: [
-                    { id: 'p1', type: 'Read', title: 'Mise en Place', link: 'https://bakerbettie.com/mise-en-place-for-baking/', note: 'The most important lesson: prep your workspace first.' },
-                    { id: 'p2', type: 'Video', title: 'Mise en Place Video', link: 'https://www.youtube.com/watch?v=62MOCMyPce0', note: 'Visual guide to setting up your station.' },
-                    { id: 'p3', type: 'Read', title: 'Essential Equipment', link: 'https://bakerbettie.com/essential-baking-equipment/', note: 'Why you need a kitchen scale and bench scraper.' },
-                    { id: 'p4', type: 'Read', title: 'Baking Terminology', link: 'https://bakerbettie.com/common-baking-terminology-definitions/', note: 'Definitions of fold, cream, cut in, and proof.' },
-                    { id: 'p5', type: 'Read', title: 'Reading a Recipe', link: 'https://bakerbettie.com/how-to-read-and-understand-a-recipe/', note: 'How to identify timing and temperature needs.' },
-                    { id: 'p6', type: 'Video', title: 'Measuring Ingredients', link: 'https://www.youtube.com/watch?v=LouNnXUmANs', note: 'The "Spoon and Level" method vs. Weighing.' }
+                    { 
+                        id: 'p1', 
+                        title: 'Mise en Place', 
+                        note: 'The most important lesson: prep your workspace first.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/mise-en-place-for-baking/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=62MOCMyPce0' }
+                        ]
+                    },
+                    { 
+                        id: 'p2', 
+                        title: 'Essential Equipment', 
+                        note: 'Why you need a kitchen scale and bench scraper.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/essential-baking-equipment/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=J3CkrJ9vPJQ' }
+                        ]
+                    },
+                    { 
+                        id: 'p3', 
+                        title: 'Baking Terminology', 
+                        note: 'Definitions of fold, cream, cut in, and proof.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/common-baking-terminology-definitions/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=TB1uVhXKNmQ' }
+                        ]
+                    },
+                    { 
+                        id: 'p4', 
+                        title: 'Reading a Recipe', 
+                        note: 'How to identify timing and temperature needs.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/how-to-read-and-understand-a-recipe/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=e4H7h4Bz9-Q' }
+                        ]
+                    },
+                    { 
+                        id: 'p5', 
+                        title: 'Measuring Ingredients', 
+                        note: 'The "Spoon and Level" method vs. Weighing.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/how-to-measure-flour/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=LouNnXUmANs' }
+                        ]
+                    }
                 ]
             },
             science: {
                 title: "2. Ingredient Science",
                 icon: "flask-conical",
-                desc: "Understanding your building blocks. Includes homework recipes.",
+                desc: "Understanding your building blocks.",
                 steps: [
-                    { id: 's1', type: 'Read', title: 'Function of Flour', link: 'https://bakerbettie.com/varieties-flour/', note: 'Protein content: Cake flour vs Bread flour.' },
-                    { id: 's2', type: 'Read', title: 'All About Gluten', link: 'https://bakerbettie.com/all-about-gluten/', note: 'When to develop it (bread) vs minimize it (cake).' },
-                    { id: 's3', type: 'Read', title: 'Function of Sugar', link: 'https://bakerbettie.com/function-of-sugar-in-baking/', note: 'Sugar creates moisture and tenderness.' },
-                    { id: 's4', type: 'Recipe', title: 'Homework: Angel Food Cake', link: 'https://bakerbettie.com/how-to-make-angel-food-cake/', note: 'A study in sugar structure and egg whites.' },
-                    { id: 's5', type: 'Read', title: 'Function of Eggs', link: 'https://bakerbettie.com/function-of-eggs-in-baking/', note: 'Structure, emulsification, and richness.' },
-                    { id: 's6', type: 'Read', title: 'Function of Fat', link: 'https://bakerbettie.com/function-of-fat-in-baking/', note: 'Butter vs Oil vs Shortening.' },
-                    { id: 's7', type: 'Read', title: 'Leavening Agents', link: 'https://bakerbettie.com/what-is-leavening/', note: 'Baking Soda vs Baking Powder vs Yeast.' }
+                    { 
+                        id: 's1', 
+                        title: 'Function of Flour', 
+                        note: 'Protein content: Cake flour vs Bread flour.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/varieties-flour/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=g2DbJ-lKcE8' }
+                        ]
+                    },
+                    { 
+                        id: 's2', 
+                        title: 'All About Gluten', 
+                        note: 'When to develop it (bread) vs minimize it (cake).',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/all-about-gluten/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=PCRytLrxs9c' }
+                        ]
+                    },
+                    { 
+                        id: 's3', 
+                        title: 'Function of Sugar', 
+                        note: 'Sugar creates moisture and tenderness.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/function-of-sugar-in-baking/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=N4UOxLGnFfY' },
+                            { type: 'recipe', label: 'Lab: Angel Food', url: 'https://bakerbettie.com/how-to-make-angel-food-cake/' }
+                        ]
+                    },
+                    { 
+                        id: 's4', 
+                        title: 'Function of Eggs', 
+                        note: 'Structure, emulsification, and richness.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/function-of-eggs-in-baking/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=jKFILK2ktTk' },
+                            { type: 'recipe', label: 'Lab: Chiffon Cake', url: 'https://bakerbettie.com/classic-chiffon-cake/' }
+                        ]
+                    },
+                    { 
+                        id: 's5', 
+                        title: 'Function of Fat', 
+                        note: 'Butter vs Oil vs Shortening.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/function-of-fat-in-baking/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=QjmgQL0k5Dk' },
+                            { type: 'recipe', label: 'Lab: Pie Crust', url: 'https://bakerbettie.com/how-to-make-pie-crust/' }
+                        ]
+                    },
+                    { 
+                        id: 's6', 
+                        title: 'Leavening Agents', 
+                        note: 'Baking Soda vs Baking Powder vs Yeast.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/what-is-leavening/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=OoCqGDn1Daw' },
+                            { type: 'recipe', label: 'Lab: Choux Pastry', url: 'https://bakerbettie.com/how-to-make-choux-pastry/' }
+                        ]
+                    },
+                    {
+                        id: 's7',
+                        title: 'Ingredient Temperatures',
+                        note: 'Why room temperature eggs matter.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/baking-ingredient-temperatures/' },
+                            { type: 'video', label: 'Watch Video', url: 'https://www.youtube.com/watch?v=CEVDoHlQOMc' }
+                        ]
+                    }
                 ]
             },
             muffins: {
@@ -124,9 +224,16 @@
                 icon: "coffee",
                 desc: "The 'Two Bowl' method. Liquid into Dry.",
                 steps: [
-                    { id: 'm1', type: 'Video', title: 'Technique: Muffin Method', link: 'https://www.youtube.com/watch?v=S33wPrQYAXo', note: 'Notice how lumpy she leaves the batter.' },
-                    { id: 'm2', type: 'Recipe', title: 'MASTER RECIPE: Basic Muffins', link: 'https://bakerbettie.com/master-muffin-recipe/', note: 'Your blank canvas. Bake this first.' },
-                    { id: 'm3', type: 'Read', title: 'Muffin Variations', link: 'https://bakerbettie.com/5-easy-muffin-variations/', note: 'Adding fruit/nuts without ruining texture.' }
+                    { 
+                        id: 'm1', 
+                        title: 'Muffin Method Technique', 
+                        note: 'Notice how lumpy she leaves the batter.',
+                        resources: [
+                            { type: 'video', label: 'Watch Technique', url: 'https://www.youtube.com/watch?v=S33wPrQYAXo' },
+                            { type: 'recipe', label: 'Master Recipe', url: 'https://bakerbettie.com/master-muffin-recipe/' },
+                            { type: 'read', label: 'Variations', url: 'https://bakerbettie.com/5-easy-muffin-variations/' }
+                        ]
+                    }
                 ]
             },
             biscuits: {
@@ -134,9 +241,16 @@
                 icon: "layers",
                 desc: "Cutting in Fat. Cold butter equals flaky layers.",
                 steps: [
-                    { id: 'b1', type: 'Video', title: 'Technique: Making Biscuits', link: 'https://bakerbettie.com/how-to-make-biscuits/', note: 'Visual guide to "pea-sized crumbs".' },
-                    { id: 'b2', type: 'Recipe', title: 'MASTER RECIPE: Flaky Biscuits', link: 'https://bakerbettie.com/best-buttermilk-biscuits/', note: 'The holy grail: Tall, flaky, buttermilk goodness.' },
-                    { id: 'b3', type: 'Recipe', title: 'Homework: Pie Crust', link: 'https://bakerbettie.com/how-to-make-pie-crust/', note: 'Uses the same "cold fat" principles.' }
+                    { 
+                        id: 'b1', 
+                        title: 'Biscuit Method Technique', 
+                        note: 'Visual guide to "pea-sized crumbs".',
+                        resources: [
+                            { type: 'video', label: 'Watch Technique', url: 'https://bakerbettie.com/how-to-make-biscuits/' },
+                            { type: 'recipe', label: 'Master Recipe', url: 'https://bakerbettie.com/best-buttermilk-biscuits/' },
+                            { type: 'recipe', label: 'Lab: Pie Crust', url: 'https://bakerbettie.com/how-to-make-pie-crust/' }
+                        ]
+                    }
                 ]
             },
             creaming: {
@@ -144,9 +258,23 @@
                 icon: "cookie",
                 desc: "Butter + Sugar + Air. Cookies and Cakes.",
                 steps: [
-                    { id: 'c1', type: 'Read', title: 'Science of Creaming', link: 'https://bakerbettie.com/creaming-method-cake-making/', note: 'Why we beat butter/sugar for 5 mins.' },
-                    { id: 'c2', type: 'Video', title: 'Cookie Science', link: 'https://bakerbettie.com/the-science-of-the-chocolate-chip-cookie/', note: 'Chewy vs. Crispy vs. Cakey.' },
-                    { id: 'c3', type: 'Recipe', title: 'MASTER RECIPE: Chewy Cookies', link: 'https://bakerbettie.com/the-best-chewy-chocolate-chip-cookies/', note: 'The gold standard cookie base.' }
+                    { 
+                        id: 'c1', 
+                        title: 'Creaming Method Science', 
+                        note: 'Why we beat butter/sugar for 5 mins.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/creaming-method-cake-making/' },
+                            { type: 'video', label: 'Cookie Science', url: 'https://bakerbettie.com/the-science-of-the-chocolate-chip-cookie/' }
+                        ]
+                    },
+                    {
+                        id: 'c2',
+                        title: 'Master Cookies',
+                        note: 'The gold standard cookie base.',
+                        resources: [
+                            { type: 'recipe', label: 'Chewy Cookies', url: 'https://bakerbettie.com/the-best-chewy-chocolate-chip-cookies/' }
+                        ]
+                    }
                 ]
             },
             yeast: {
@@ -154,9 +282,23 @@
                 icon: "wheat",
                 desc: "Patience and Kneading. Building strong gluten.",
                 steps: [
-                    { id: 'y1', type: 'Read', title: 'Yeast Essentials', link: 'https://bakerbettie.com/yeast-essentials-everything-you-need-to-know-to-bake-with-yeast/', note: 'Active Dry vs Instant Yeast.' },
-                    { id: 'y2', type: 'Video', title: 'Technique: Kneading', link: 'https://bakerbettie.com/how-to-knead-bread/', note: 'How to perform the Windowpane Test.' },
-                    { id: 'y3', type: 'Recipe', title: 'MASTER RECIPE: White Bread', link: 'https://bakerbettie.com/simple-white-bread-recipe/', note: 'A classic sandwich loaf.' }
+                    { 
+                        id: 'y1', 
+                        title: 'Yeast Essentials', 
+                        note: 'Active Dry vs Instant Yeast.',
+                        resources: [
+                            { type: 'read', label: 'Article', url: 'https://bakerbettie.com/yeast-essentials-everything-you-need-to-know-to-bake-with-yeast/' },
+                            { type: 'video', label: 'Kneading Video', url: 'https://bakerbettie.com/how-to-knead-bread/' }
+                        ]
+                    },
+                    {
+                        id: 'y2',
+                        title: 'Basic Loaf',
+                        note: 'A classic sandwich loaf.',
+                        resources: [
+                            { type: 'recipe', label: 'Master Recipe', url: 'https://bakerbettie.com/simple-white-bread-recipe/' }
+                        ]
+                    }
                 ]
             }
         };
@@ -279,10 +421,20 @@
             data.steps.forEach(step => {
                 const isChecked = completed[step.id];
                 
-                let typeBadge = '';
-                if(step.type === 'Video') typeBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-red-100 text-red-700">Video</span>';
-                else if(step.type === 'Recipe') typeBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-orange-100 text-orange-700">Recipe</span>';
-                else typeBadge = '<span class="px-2 py-0.5 rounded text-[10px] font-bold tracking-wide uppercase bg-blue-100 text-blue-700">Read</span>';
+                // Generate buttons for each resource in the step
+                let buttonsHtml = '';
+                if (step.resources && step.resources.length > 0) {
+                    buttonsHtml = step.resources.map(r => {
+                        let icon = r.type === 'video' ? 'play-circle' : (r.type === 'recipe' ? 'utensils' : 'book-open');
+                        let colorClass = r.type === 'video' ? 'text-red-700 bg-red-50 hover:bg-red-100 border-red-200' : 
+                                       (r.type === 'recipe' ? 'text-orange-700 bg-orange-50 hover:bg-orange-100 border-orange-200' : 
+                                       'text-blue-700 bg-blue-50 hover:bg-blue-100 border-blue-200');
+                        
+                        return `<a href="${r.url}" target="_blank" onclick="event.stopPropagation()" class="flex items-center gap-1.5 px-3 py-1.5 rounded-md text-xs font-semibold transition-all ${colorClass} border shadow-sm">
+                            <i data-lucide="${icon}" class="w-3.5 h-3.5"></i> ${r.label}
+                        </a>`;
+                    }).join('');
+                }
 
                 html += `
                 <div onclick="toggleComplete('${step.id}')" class="group bg-white border rounded-xl p-5 shadow-sm transition-all hover:shadow-md cursor-pointer flex gap-4 ${isChecked ? 'checkbox-checked border-green-200' : 'border-gray-200 hover:border-orange-300'}">
@@ -294,17 +446,15 @@
                     </div>
 
                     <div class="flex-1">
-                        <div class="flex items-center gap-2 mb-1">
-                            ${typeBadge}
+                        <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-2">
+                            <h3 class="text-lg font-semibold ${isChecked ? 'strikethrough text-slate-500' : 'text-slate-800'}">
+                                ${step.title}
+                            </h3>
+                            <div class="flex flex-wrap gap-2">
+                                ${buttonsHtml}
+                            </div>
                         </div>
-                        <h3 class="text-lg font-semibold ${isChecked ? 'strikethrough' : 'text-slate-800'}">
-                            ${step.title}
-                        </h3>
-                        <p class="text-sm text-slate-500 mt-1 mb-3">${step.note}</p>
-                        
-                        <a href="${step.link}" target="_blank" onclick="event.stopPropagation()" class="inline-flex items-center gap-1 text-sm font-semibold text-orange-600 hover:text-orange-800 hover:underline">
-                            Open Resource <i data-lucide="external-link" class="w-3 h-3"></i>
-                        </a>
+                        <p class="text-sm text-slate-500">${step.note}</p>
                     </div>
                 </div>`;
             });
@@ -313,7 +463,7 @@
                 <div class="mt-10 p-4 bg-yellow-50 rounded-lg border border-yellow-100 flex gap-3 text-sm text-yellow-800 safe-pb">
                     <i data-lucide="lightbulb" class="flex-shrink-0"></i>
                     <div>
-                        <strong>Pro Tip:</strong> Click the card itself to toggle the checkmark. Click "Open Resource" to visit the Baker Bettie page in a new tab.
+                        <strong>Pro Tip:</strong> Click anywhere on the card to check it off. Use the buttons to open the actual content.
                     </div>
                 </div>
             `;
